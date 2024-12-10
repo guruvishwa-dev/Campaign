@@ -37,6 +37,7 @@ const linksMockdata = [
 ];
 
 export function DoubleNavbar() {
+  
   const [active, setActive] = useState('Releases');
   const [activeLink, setActiveLink] = useState('Settings');
 
