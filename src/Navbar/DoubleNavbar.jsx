@@ -1,45 +1,27 @@
 import { useState } from 'react';
 import {
-  IconCalendarStats,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconGauge,
   IconHome2,
-  IconSettings,
-  IconUser,
 } from '@tabler/icons-react';
 import { Title, Tooltip, UnstyledButton } from '@mantine/core';
 import { MantineLogo } from '@mantinex/mantine-logo';
+import { useNavigate, Outlet } from 'react-router-dom'; // Import Outlet for nested routing
 import classes from './DoubleNavbar.module.css';
 
 const mainLinksMockdata = [
   { icon: IconHome2, label: 'Home' },
-  { icon: IconGauge, label: 'Dashboard' },
-  // { icon: IconDeviceDesktopAnalytics, label: 'Analytics' },
-  // { icon: IconCalendarStats, label: 'Releases' },
-  // { icon: IconUser, label: 'Account' },
-  // { icon: IconFingerprint, label: 'Security' },
-  // { icon: IconSettings, label: 'Settings' },
 ];
 
 const linksMockdata = [
-  'Campaign',
-  'ChatBot',
-  'Suggestion for Campaign',
-  // 'Releases',
-  // 'Account',
-  // 'Orders',
-  // 'Clients',
-  // 'Databases',
-  // 'Pull Requests',
-  // 'Open Issues',
-  // 'Wiki pages',
+  { label: 'Campaign', path: '/campaign/home' },
+  { label: 'Campaign Performance', path: '/campaign/performance' },
+  { label: 'ChatBot', path: '/campaign/chatbot' },
 ];
 
-export function DoubleNavbar() {
-
-  const [active, setActive] = useState('Releases');
-  const [activeLink, setActiveLink] = useState('Settings');
+export const DoubleNavbar = () => {
+  const [active, setActive] = useState('Home');
+  const [showLinks, setShowLinks] = useState(false);
+  const [activeLink, setActiveLink] = useState('');
+  const navigate = useNavigate();
 
   const mainLinks = mainLinksMockdata.map((link) => (
     <Tooltip
@@ -50,7 +32,10 @@ export function DoubleNavbar() {
       key={link.label}
     >
       <UnstyledButton
-        onClick={() => setActive(link.label)}
+        onClick={() => {
+          setActive(link.label);
+          if (link.label === 'Home') setShowLinks(true);
+        }}
         className={classes.mainLink}
         data-active={link.label === active || undefined}
       >
@@ -59,38 +44,44 @@ export function DoubleNavbar() {
     </Tooltip>
   ));
 
-  const links = linksMockdata.map((link) => (
-    <a
-      className={classes.link}
-      data-active={activeLink === link || undefined}
-      href="#"
-      onClick={(event) => {
-        event.preventDefault();
-        setActiveLink(link);
-      }}
-      key={link}
-    >
-      {link}
-    </a>
-  ));
+  const links = showLinks
+    ? linksMockdata.map((link) => (
+        <div
+          key={link.label}
+          className={classes.link}
+          data-active={activeLink === link.label || undefined}
+          onClick={() => {
+            setActiveLink(link.label);
+            navigate(link.path); // Navigate to child routes
+          }}
+        >
+          {link.label}
+        </div>
+      ))
+    : null;
 
   return (
-    <nav className={classes.navbar}>
-      <div className={classes.wrapper}>
-        <div className={classes.aside}>
-          <div className={classes.logo}>
-            <MantineLogo type="mark" size={30} />
+    <div className={classes.container}>
+      <nav className={classes.navbar}>
+        <div className={classes.wrapper}>
+          <div className={classes.aside}>
+            <div className={classes.logo}>
+              <MantineLogo type="mark" size={30} />
+            </div>
+            {mainLinks}
           </div>
-          {mainLinks}
-        </div>
-        <div className={classes.main}>
-          <Title order={4} className={classes.title}>
-            {active}
-          </Title>
+          <div className={classes.main}>
+            <Title order={4} className={classes.title}>
+              {active}
+            </Title>
 
-          {links}
+            {links}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <main className={classes.content}>
+        <Outlet /> {/* Render child routes here */}
+      </main>
+    </div>
   );
-}
+};

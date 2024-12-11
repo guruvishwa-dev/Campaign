@@ -4,13 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { DoubleNavbar } from './Navbar/DoubleNavbar'
 import "@mantine/core/styles.css"
+import routes from './Navbar/Route'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <DoubleNavbar/>
-    </>
+      <RouterProvider router={routes} />    
+     </>
   )
 }
 
