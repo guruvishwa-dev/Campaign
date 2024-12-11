@@ -23,21 +23,21 @@ const mainLinksMockdata = [
 ];
 
 const linksMockdata = [
-  'Security',
-  'Settings',
-  'Dashboard',
-  'Releases',
-  'Account',
-  'Orders',
-  'Clients',
-  'Databases',
-  'Pull Requests',
-  'Open Issues',
-  'Wiki pages',
+  'Campaign',
+  'ChatBot',
+  'Suggestion for Campaign',
+  // 'Releases',
+  // 'Account',
+  // 'Orders',
+  // 'Clients',
+  // 'Databases',
+  // 'Pull Requests',
+  // 'Open Issues',
+  // 'Wiki pages',
 ];
 
 export function DoubleNavbar() {
-  
+
   const [active, setActive] = useState('Releases');
   const [activeLink, setActiveLink] = useState('Settings');
 
