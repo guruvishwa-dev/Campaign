@@ -13,7 +13,7 @@ const mainLinksMockdata = [
 
 const linksMockdata = [
   { label: 'Campaign', path: '/campaign/home' },
-  { label: 'Campaign Performance', path: '/campaign/performance' },
+  { label: 'Campaign Performance', path: `/campaign/campaignperformance` },
   { label: 'ChatBot', path: '/campaign/chatbot' },
 ];
 
