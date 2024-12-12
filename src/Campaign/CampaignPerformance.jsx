@@ -1,14 +1,10 @@
-// export const CampiagnPerformance = () => {
-//     return (<>
-//         Campaign Performance
-//     </>)
-// }
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Row, Col, Card, Statistic, Table } from 'antd';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useNavigate, useLocation } from "react-router-dom";
+
+
 // Your campaign data
 const campaigns = [
     { "date": "7/28/2020", "campaign_name": "Campaign_A", "impressions": 0, "clicks": 0, "spend": "$0.00", "conversions": 0, "status": "Running" },
@@ -20,6 +16,7 @@ const campaigns = [
     { "date": "7/25/2020", "campaign_name": "Campaign_A", "impressions": 0, "clicks": 0, "spend": "$0.00", "conversions": 0, "status": "Running" },
     { "date": "7/27/2020", "campaign_name": "Campaign_A", "impressions": 0, "clicks": 0, "spend": "$0.00", "conversions": 0, "status": "Running" },
     { "date": "7/28/2020", "campaign_name": "Campaign_C", "impressions": 1793, "clicks": 11, "spend": "$16.19", "conversions": 0, "status": "Running" },
+    { "date": "7/23/2020", "campaign_name": "Campaign_B", "impressions": 250, "clicks": 20, "spend": "$3.32", "conversions": 0, "status": "Off" },
     { "date": "7/25/2020", "campaign_name": "Campaign_A", "impressions": 6413, "clicks": 407, "spend": "$59.40", "conversions": 0, "status": "Running" },
     { "date": "7/24/2020", "campaign_name": "Campaign_A", "impressions": 29282, "clicks": 1001, "spend": "$194.29", "conversions": 0, "status": "Running" }
   ];

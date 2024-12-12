@@ -1,131 +1,3 @@
-// import React from 'react';
-// import { Row, Col, Card, Statistic, Table, Space } from 'antd';
-// import { LineChartOutlined, AppstoreAddOutlined } from '@ant-design/icons';
-// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-// // // Sample campaign data
-// const data = [
-//     { date: '2024-12-01', impressions: 1000, clicks: 120, spend: 200 },
-//     { date: '2024-12-02', impressions: 1500, clicks: 180, spend: 250 },
-//     { date: '2024-12-03', impressions: 2000, clicks: 220, spend: 300 },
-//     { date: '2024-12-04', impressions: 2500, clicks: 280, spend: 350 },
-//     { date: '2024-12-05', impressions: 3000, clicks: 320, spend: 400 },
-//   ];
-//   // // Sample campaign table data
-//   const campaignData = [
-//   { key: '1', name: 'Campaign 1', impressions: 1000, clicks: 120, ctr: '12%', spend: 200, roi: '5%' },
-//   { key: '2', name: 'Campaign 2', impressions: 1500, clicks: 180, ctr: '12%', spend: 250, roi: '6%' },
-//   { key: '3', name: 'Campaign 3', impressions: 2000, clicks: 220, ctr: '11%', spend: 300, roi: '7%' },
-//   { key: '4', name: 'Campaign 4', impressions: 2500, clicks: 280, ctr: '11%', spend: 350, roi: '8%' },
-// ];
-// // // Campaign table columns
-// const columns = [
-//   {
-//     title: 'Campaign Name',
-//     dataIndex: 'name',
-//     key: 'name',
-//   },
-//   {
-//     title: 'Impressions',
-//     dataIndex: 'impressions',
-//     key: 'impressions',
-//   },
-//   {
-//     title: 'Clicks',
-//     dataIndex: 'clicks',
-//     key: 'clicks',
-//   },
-//   {
-//     title: 'CTR',
-//     dataIndex: 'ctr',
-//     key: 'ctr',
-//   },
-//   {
-//     title: 'Spend ($)',
-//     dataIndex: 'spend',
-//     key: 'spend',
-//   },
-//   {
-//     title: 'ROI',
-//     dataIndex: 'roi',
-//     key: 'roi',
-//   },
-// ];
-
-// export const CampaignPage = () => {
-//     return (<>
-//         {/* welcome to the common page of the campaign */}
-        
-//        <Row gutter={16} style={{ marginBottom: 24 }}>
-//          {/* Statistics Cards */}
-//        <Col span={8}>
-//           <Card>
-//            <Statistic
-//               title="Total Impressions"
-//               value={5000}
-//               prefix={<AppstoreAddOutlined />}
-//               suffix="impressions"
-//             />
-//           </Card>
-//         </Col>
-//         <Col span={8}>
-//           <Card>
-//             <Statistic
-//               title="Total Clicks"
-//               value={600}
-//               prefix={<AppstoreAddOutlined />}
-//               suffix="clicks"
-//             />
-//           </Card>
-//         </Col>
-//         <Col span={8}>
-//           <Card>
-//             <Statistic
-//               title="Total Spend ($)"
-//               value={1000}
-//               prefix={<AppstoreAddOutlined />}
-//               suffix="USD"
-//             />
-//           </Card>
-//         </Col>
-//       </Row>
-
-//       {/* Line Chart for Campaign Performance */}
-//       <Row gutter={16} style={{ marginBottom: 24 }}>
-//         <Col span={24}>
-//           <Card title="Campaign Performance Over Time">
-//             <ResponsiveContainer width="100%" height={300}>
-//               <LineChart data={data}>
-//                 <CartesianGrid strokeDasharray="3 3" />
-//                 <XAxis dataKey="date" />
-//                 <YAxis />
-//                 <Tooltip />
-//                 <Legend />
-//                 <Line type="monotone" dataKey="impressions" stroke="#8884d8" />
-//                 <Line type="monotone" dataKey="clicks" stroke="#82ca9d" />
-//               </LineChart>
-//             </ResponsiveContainer>
-//           </Card>
-//         </Col>
-//       </Row>
-
-//       {/* Campaign Table */}
-//       <Row gutter={16}>
-//         <Col span={24}>
-//           <Card title="Campaigns Overview">
-//             <Table
-//               columns={columns}
-//               dataSource={campaignData}
-//               pagination={false}
-//             />
-//           </Card>
-//         </Col>
-//       </Row>
-
-//     </>)
-// }
-
-
 import React from 'react';
 import { Row, Col, Card, Statistic, Table ,Typography} from 'antd';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
@@ -141,7 +13,8 @@ const campaigns = [
   { "date": "7/25/2020", "campaign_name": "Campaign_A", "impressions": 0, "clicks": 0, "spend": "$0.00", "conversions": 0, "status": "Running" },
   { "date": "7/27/2020", "campaign_name": "Campaign_A", "impressions": 0, "clicks": 0, "spend": "$0.00", "conversions": 0, "status": "Running" },
   { "date": "7/28/2020", "campaign_name": "Campaign_C", "impressions": 1793, "clicks": 11, "spend": "$16.19", "conversions": 0, "status": "Running" },
-  { "date": "7/25/2020", "campaign_name": "Campaign_A", "impressions": 6413, "clicks": 407, "spend": "$59.40", "conversions": 0, "status": "Running" },
+  { "date": "7/25/2020", "campaign_name": "Campaign_A", "impressions": 6413, "clicks": 407, "spend": "$40.40", "conversions": 0, "status": "Running" },
+  { "date": "7/23/2020", "campaign_name": "Campaign_B", "impressions": 250, "clicks": 20, "spend": "$3.32", "conversions": 0, "status": "Off" },
   { "date": "7/24/2020", "campaign_name": "Campaign_A", "impressions": 29282, "clicks": 1001, "spend": "$194.29", "conversions": 0, "status": "Running" }
 ];
 
@@ -249,7 +122,7 @@ console.log('recored',record)
             <Statistic
               title="Impressions"
               value={totalImpressions.toLocaleString()} // Format the number with commas
-              suffix="impressions"
+             
             />
           </Card>
         </Col>
@@ -260,7 +133,7 @@ console.log('recored',record)
             <Statistic
               title="Spend"
               value={`$${totalSpend.toFixed(2)}`} // Format as currency
-              suffix="USD"
+              // suffix="USD"
             />
           </Card>
         </Col>
@@ -271,7 +144,7 @@ console.log('recored',record)
             <Statistic
               title="Clicks"
               value={totalClicks.toLocaleString()} // Format the number with commas
-              suffix="clicks"
+            
             />
           </Card>
         </Col>
@@ -282,30 +155,12 @@ console.log('recored',record)
             <Statistic
               title="Conversions"
               value={totalConversions.toFixed(1)} // Format the value to one decimal place
-              suffix="conversions"
+              
             />
           </Card>
         </Col>
       </Row>
 
-      {/* Line Chart for Campaign Performance */}
-      {/* <Row gutter={16} style={{ marginBottom: 24 }}>
-        <Col span={24}>
-          <Card title="Campaign Performance Over Time">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={chartData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="impressions" stroke="#8884d8" />
-                <Line type="monotone" dataKey="clicks" stroke="#82ca9d" />
-              </LineChart>
-            </ResponsiveContainer>
-          </Card>
-        </Col>
-      </Row> */}
  <Row gutter={16} style={{ marginBottom: 24 }}>
         <Col span={24}>
           <Card title="Campaign Performance Over Time">
