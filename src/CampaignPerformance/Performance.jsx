@@ -22,18 +22,18 @@ const calculatePerformance = (data) => {
   const aggregatedData = {};
 
   data.forEach((campaign) => {
-    const { campaign_name, impressions, clicks } = campaign;
+    const { campaign_name, impressions, clicks ,type} = campaign;
     if (!aggregatedData[campaign_name]) {
-      aggregatedData[campaign_name] = { impressions: 0, clicks: 0 };
+      aggregatedData[campaign_name] = { impressions: 0, clicks: 0,type };
     }
     aggregatedData[campaign_name].impressions += impressions;
     aggregatedData[campaign_name].clicks += clicks;
   });
 
   return Object.keys(aggregatedData).map((name) => {
-    const { impressions, clicks } = aggregatedData[name];
+    const { impressions, clicks,type } = aggregatedData[name];
     const score = impressions > 0 ? ((clicks / impressions) * 100).toFixed(2) : 0;
-    return { campaign_name: name, impressions, clicks, score };
+    return { campaign_name: name, impressions, clicks, score ,type};
   });
 };
 
@@ -75,7 +75,7 @@ const Performance = () => {
       }}
     >
       <h3>{campaign.campaign_name}</h3>
-      <p>Performance Score: {campaign.score}%</p>
+      <p><strong>Campaign Type:</strong> {campaign.type}</p> 
       <p>Impressions: {campaign.impressions}</p>
       <p>Clicks: {campaign.clicks}</p>
       <p>Performance Score: {campaign.score}%</p>
