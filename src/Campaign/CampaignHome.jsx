@@ -118,9 +118,9 @@ console.log('recored',record)
       <Row gutter={16} style={{ marginBottom: 24 }}>
         {/* Impressions Card */}
         <Col span={6}>
-          <Card>
+          <Card style={{border: 0}}>
             <Statistic
-              title="Impressions"
+              title="Impressions" 
               value={totalImpressions.toLocaleString()} // Format the number with commas
              
             />
@@ -129,7 +129,7 @@ console.log('recored',record)
 
         {/* Spend Card */}
         <Col span={6}>
-          <Card>
+          <Card style={{border: 0}}>
             <Statistic
               title="Spend"
               value={`$${totalSpend.toFixed(2)}`} // Format as currency
@@ -140,7 +140,7 @@ console.log('recored',record)
 
         {/* Clicks Card */}
         <Col span={6}>
-          <Card>
+          <Card style={{border: 0}}>
             <Statistic
               title="Clicks"
               value={totalClicks.toLocaleString()} // Format the number with commas
@@ -151,7 +151,7 @@ console.log('recored',record)
 
         {/* Conversions Card */}
         <Col span={6}>
-          <Card>
+          <Card style={{border: 0}}>
             <Statistic
               title="Conversions"
               value={totalConversions.toFixed(1)} // Format the value to one decimal place
