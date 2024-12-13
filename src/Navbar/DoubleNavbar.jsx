@@ -1,26 +1,23 @@
-import { useState } from 'react';
-import {
-  IconHome2,
-} from '@tabler/icons-react';
-import { Title, Tooltip, UnstyledButton } from '@mantine/core';
-import { MantineLogo } from '@mantinex/mantine-logo';
-import { useNavigate, Outlet } from 'react-router-dom'; // Import Outlet for nested routing
-import classes from './DoubleNavbar.module.css';
+import { useState } from "react";
+import { IconHome2 } from "@tabler/icons-react";
+import { Title, Tooltip, UnstyledButton } from "@mantine/core";
+// import { MantineLogo } from '@mantinex/mantine-logo';
+import icon from "../assets/icon.png";
+import { useNavigate, Outlet } from "react-router-dom"; // Import Outlet for nested routing
+import classes from "./DoubleNavbar.module.css";
 
-const mainLinksMockdata = [
-  { icon: IconHome2, label: 'Home' },
-];
+const mainLinksMockdata = [{ icon: IconHome2, label: "Home" }];
 
 const linksMockdata = [
-  { label: 'Campaign', path: '/campaign/home' },
-  { label: 'Campaign Performance', path: `/campaign/campaignperformance` },
-  { label: 'ChatBot', path: '/campaign/chatbot' },
+  { label: "Campaign", path: "/campaign/home" },
+  { label: "Campaign Performance", path: `/campaign/campaignperformance` },
+  // { label: 'ChatBot', path: '/campaign/chatbot' },
 ];
 
 export const DoubleNavbar = () => {
-  const [active, setActive] = useState('Home');
+  const [active, setActive] = useState("Home");
   const [showLinks, setShowLinks] = useState(false);
-  const [activeLink, setActiveLink] = useState('');
+  const [activeLink, setActiveLink] = useState("");
   const navigate = useNavigate();
 
   const mainLinks = mainLinksMockdata.map((link) => (
@@ -34,7 +31,7 @@ export const DoubleNavbar = () => {
       <UnstyledButton
         onClick={() => {
           setActive(link.label);
-          if (link.label === 'Home') setShowLinks(true);
+          if (link.label === "Home") setShowLinks(true);
         }}
         className={classes.mainLink}
         data-active={link.label === active || undefined}
@@ -65,15 +62,18 @@ export const DoubleNavbar = () => {
       <nav className={classes.navbar}>
         <div className={classes.wrapper}>
           <div className={classes.aside}>
-            <div className={classes.logo}>
+            {/* <div className={classes.logo}>
               <MantineLogo type="mark" size={30} />
+            </div> */}
+            <div className={classes.logo}>
+              <img src={icon} alt="Your Logo" style={{ height: 30 }} />
             </div>
             {mainLinks}
           </div>
           <div className={classes.main}>
-            <Title order={4} className={classes.title}>
+            {/* <Title order={4} className={classes.title}>
               {active}
-            </Title>
+            </Title> */}
 
             {links}
           </div>

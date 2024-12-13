@@ -74,7 +74,7 @@
   }
 
   .aside button{
-    background-color: transparent !important;
+    background-color: #66778A !important;
     color: #ffff !important;
     border-radius: none !important;
   }
@@ -131,7 +131,7 @@
   
   .main {
     flex: 1;
-    /* margin-top: 20px; */
+    margin-top: 16px;
     background-color: #66778A;
     text-align: left;
   }

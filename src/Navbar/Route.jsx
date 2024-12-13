@@ -2,7 +2,7 @@ import { Navigate, Route, createBrowserRouter, createRoutesFromElements } from "
 import { DoubleNavbar } from "./DoubleNavbar";
 import { CampaignPage } from "../Campaign/CampaignHome";
 import { CampiagnPerformance } from "../Campaign/CampaignPerformance";
-import { ChatHome } from "../ChatBot";
+// import { ChatHome } from "../ChatBot";
 import Performance from "../CampaignPerformance/Performance";
 const routes = createBrowserRouter(
     createRoutesFromElements(
@@ -13,7 +13,7 @@ const routes = createBrowserRouter(
                 <Route path="home" element={<CampaignPage />} />
                 <Route path="performance/:campaignName" element={<CampiagnPerformance />} />
                 <Route path="campaignperformance" element={<Performance/>}/>
-                <Route path="chatBot" element={<ChatHome />} />
+                {/* <Route path="chatBot" element={<ChatHome />} /> */}
 
             </Route>
         </Route>
